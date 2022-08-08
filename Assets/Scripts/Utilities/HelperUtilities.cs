@@ -41,7 +41,7 @@ public static class HelperUtilities
 
         if (count == 0)
         {
-            Debug.Log(fieldName + " has o values in object " + thisObject.name.ToString());
+            Debug.Log(fieldName + " has no values in object " + thisObject.name.ToString());
             error = true;
         }
 
