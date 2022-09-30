@@ -11,7 +11,7 @@ public static class HelperUtilities
     {
         if (stringToCheck == "")
         {
-            Debug.Log(fieldName + "is empty and must contain a value in object " + thisObject.name.ToString());
+            Debug.Log(fieldName + " is empty and must contain a value in object " + thisObject.name.ToString());
             return true;
         }
 
@@ -25,6 +25,12 @@ public static class HelperUtilities
     {
         bool error = false;
         int count = 0;
+
+        if (enumerableObjectToCheck == null)
+        {
+            Debug.Log(fieldName + " is null in object " + thisObject.name.ToString());
+            return true;
+        }
 
         foreach (var item in enumerableObjectToCheck)
         {
