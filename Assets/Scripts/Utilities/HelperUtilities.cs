@@ -92,4 +92,32 @@ public static class HelperUtilities
         }
         return error;
     }
+
+    public static Vector3 GetSpawnPositionNearestToPlayer(Vector3 playerPosition)
+    {
+        // First need to work out what the current room is
+        Room currentRoom = GameManager.Instance.GetCurrentRoom();
+
+        // To convert a tilemap position to a world position theres a method we can use on the grid component
+        // called CellToWorld() so that's why we have cached that in instantiatedRoom.
+        Grid grid = currentRoom.instantiatedRoom.grid;
+
+        // We set this as quite a large value to begin with, and then every time the spawn position is closer than the
+        // nearestSpawnPosition, we'll set the spawnPosition to be the nearestSpawnPosition
+        Vector3 nearestSpawnPosition = new Vector3(100000f, 100000f, 0f);
+
+        // Loop through spawn positions
+        foreach (Vector2Int spawnPositionGrid in currentRoom.spawnPositionArray)
+        {
+            // convert the spawn grid positions to world positions
+            Vector3 spawnPositionWorld = grid.CellToWorld((Vector3Int)spawnPositionGrid);
+
+            if (Vector3.Distance(spawnPositionWorld, playerPosition) < Vector3.Distance(nearestSpawnPosition, playerPosition))
+            {
+                nearestSpawnPosition = spawnPositionWorld;
+            }
+        }
+
+        return nearestSpawnPosition;
+    }
 }
