@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3878233213028151944, guid: 12cb396e40ddf4944bd9ee8aef6adc40, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3878233213028151946, guid: 12cb396e40ddf4944bd9ee8aef6adc40, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
       value: 0
