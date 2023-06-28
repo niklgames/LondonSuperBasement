@@ -96,6 +96,19 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }  
     }
 
+    /// <summary>
+    /// Set the current room the player is in
+    /// </summary>
+    /// <param name="room"></param>
+    public void SetCurrentRoom(Room room)
+    {
+        previousRoom = currentRoom;
+        currentRoom = room;
+
+        //// Debug
+        /// Debug.Log(room.prefab.name.ToString());
+    }
+
     private void PlayDungeonLevel(int dungeonLevelListIndex)
     {
         // Build dungeon for level
@@ -105,6 +118,23 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             Debug.LogError("Couldn't build dungeon from specified rooms and node graph");
         }
+
+        // Set player roughly mid-room
+        player.gameObject.transform.position = new Vector3((currentRoom.lowerBounds.x + currentRoom.upperBounds.x / 2f),
+                                                            (currentRoom.lowerBounds.y + currentRoom.upperBounds.y / 2f),
+                                                            0f);
+
+        // Get nearest spawn point in room nearest to player
+        player.gameObject.transform.position = HelperUtilities.GetSpawnPositionNearestToPlayer(player.gameObject.transform.position);
+    }
+
+    /// <summary>
+    /// Get the current room the player is in.
+    /// </summary>
+    /// <returns></returns>
+    public Room GetCurrentRoom()
+    {
+        return currentRoom;
     }
 
     #region Validation
