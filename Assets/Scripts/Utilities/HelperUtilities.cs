@@ -4,6 +4,29 @@ using UnityEngine;
 
 public static class HelperUtilities
 {
+    public static Camera mainCamera;
+
+    /// <summary>
+    /// Get the mouse world position
+    /// </summary>
+    public static Vector3 GetMouseWorldPosition()
+    {
+        if (mainCamera == null) mainCamera = Camera.main;
+
+        Vector3 mouseScreenPosition = Input.mousePosition;
+
+        // Clamp mouse position to screen size
+        mouseScreenPosition.x = Mathf.Clamp(mouseScreenPosition.x, 0f, Screen.width);
+        mouseScreenPosition.x = Mathf.Clamp(mouseScreenPosition.y, 0f, Screen.height);
+
+        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mouseScreenPosition);
+
+        worldPosition.z = 0;
+
+        return worldPosition;
+
+    }
+
     /// <summary>
     /// Empty string debug check
     /// </summary>
