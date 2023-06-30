@@ -28,6 +28,18 @@ public static class HelperUtilities
     }
 
     /// <summary>
+    /// Get angle in degrees from direction vector
+    /// </summary>
+    public static float GetAngleInDegreesFromVector(Vector3 vector)
+    {
+        float radians = Mathf.Atan2(vector.y, vector.x);
+
+        float degrees = radians * Mathf.Rad2Deg;
+
+        return degrees;
+    }
+
+    /// <summary>
     /// Empty string debug check
     /// </summary>
     public static bool ValidateCheckEmptyString(Object thisObject, string fieldName, string stringToCheck)
