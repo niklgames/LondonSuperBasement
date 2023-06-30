@@ -40,6 +40,52 @@ public static class HelperUtilities
     }
 
     /// <summary>
+    /// Get AimDirection enum value from the passed in angleDegrees
+    /// </summary>
+    public static AimDirection GetAimDirection(float angleDegrees)
+    {
+        AimDirection aimDirection;
+
+        // Set player direction
+        // Up Right
+        if (angleDegrees >= 22f && angleDegrees <= 67f)
+        {
+            aimDirection = AimDirection.UpRight;
+        }
+        // Up
+        else if (angleDegrees > 67f && angleDegrees <= 112f)
+        {
+            aimDirection = AimDirection.Up;
+        }
+        // UpLeft
+        else if (angleDegrees > 112f && angleDegrees <= 158f)
+        {
+            aimDirection = AimDirection.UpLeft;
+        }
+        // Left - This is one where we have to do two tests as there is a crossover between positive and negative degrees
+        else if ((angleDegrees <= 180f && angleDegrees > 158f) || (angleDegrees > -180 && angleDegrees <= -135f))
+        {
+            aimDirection = AimDirection.Left;
+        }
+        // Down
+        else if (angleDegrees > -135f && angleDegrees <= -45f)
+        {
+            aimDirection = AimDirection.Down;
+        }
+        // Right - As above with the Left aimDirection
+        else if ((angleDegrees > -45f && angleDegrees <= 0f) || (angleDegrees > 0f && angleDegrees < 22f))
+        {
+            aimDirection = AimDirection.Right;
+        }
+        else
+        {
+            aimDirection = AimDirection.Right;
+        }
+
+        return aimDirection;
+    }
+
+    /// <summary>
     /// Empty string debug check
     /// </summary>
     public static bool ValidateCheckEmptyString(Object thisObject, string fieldName, string stringToCheck)
