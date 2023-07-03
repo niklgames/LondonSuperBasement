@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-#region REQUIRE COMPONENTS
+/*#region REQUIRE COMPONENTS
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(IdleEvent))]
 [RequireComponent(typeof(Idle))]
@@ -17,7 +17,8 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(PolygonCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 [DisallowMultipleComponent]
-#endregion REQUIRE COMPONENTS
+#endregion REQUIRE COMPONENTS*/
+
 public class Player : MonoBehaviour
 {
     [HideInInspector] public PlayerDetailsSO playerDetails;
