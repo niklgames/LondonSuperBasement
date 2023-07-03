@@ -13,7 +13,7 @@ public class AimWeaponEvent : MonoBehaviour
         OnWeaponAim?.Invoke(this, new AimWeaponEventArgs() { aimDirection = aimDirection, 
                                                              aimAngle = aimAngle,
                                                              weaponAimAngle = weaponAimAngle,
-                                                             weaponAimDirectionVector = weaponAimDirectionVector});
+                                                             weaponAimDirectionVector = weaponAimDirectionVector });
     }
 
 }
