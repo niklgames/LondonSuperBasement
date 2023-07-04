@@ -7,13 +7,13 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class Idle : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D rigidBody2D;
     private IdleEvent idleEvent;
 
     private void Awake()
     {
         // Load components
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidBody2D = GetComponent<Rigidbody2D>();
         idleEvent = GetComponent<IdleEvent>();
     }
 
@@ -40,6 +40,6 @@ public class Idle : MonoBehaviour
     private void MoveRigidBody()
     {
         // ensure the rigidbody collision detection is set to continuous
-        rigidbody2D.velocity = Vector2.zero;
+        rigidBody2D.velocity = Vector2.zero;
     }
 }
