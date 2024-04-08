@@ -17,7 +17,7 @@ public static class HelperUtilities
 
         // Clamp mouse position to screen size
         mouseScreenPosition.x = Mathf.Clamp(mouseScreenPosition.x, 0f, Screen.width);
-        mouseScreenPosition.x = Mathf.Clamp(mouseScreenPosition.y, 0f, Screen.height);
+        mouseScreenPosition.y = Mathf.Clamp(mouseScreenPosition.y, 0f, Screen.height);
 
         Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mouseScreenPosition);
 
