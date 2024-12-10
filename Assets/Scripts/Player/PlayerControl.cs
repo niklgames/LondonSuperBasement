@@ -38,6 +38,16 @@ public class PlayerControl : MonoBehaviour
     {
         // Create waitforfixed update for use in coroutine
         waitForFixedUpdate = new WaitForFixedUpdate();
+
+        SetPlayerAnimationSpeed();
+    }
+
+    /// <summary>
+    /// Set player animator speed to match player movement speed
+    /// </summary>
+    private void SetPlayerAnimationSpeed()
+    {
+        player.animator.speed = moveSpeed / Settings.baseSpeedForPlayerAnimations;
     }
 
     private void Update()
